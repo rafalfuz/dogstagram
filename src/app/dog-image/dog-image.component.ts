@@ -1,5 +1,6 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input,} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-dog-image',
@@ -8,11 +9,13 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class DogImageComponent implements OnInit {
-  @Input() data: any | undefined;
-  breed: any;  
+  @Input() valueToChild: any
+  
+  breed: any;
+
 
 constructor(private httpClient: HttpClient){
-  this.breed = '' 
+ this.breed = 'akita'
 }
 
 ngOnInit(): void{
@@ -20,8 +23,9 @@ ngOnInit(): void{
 }
 
 selectBreed(){
-  this.httpClient.get(`https://dog.ceo/api/breed/boxer/images/random`).subscribe((result)=>{
+  this.httpClient.get(`https://dog.ceo/api/breed/${this.breed}/images/random`).subscribe((result)=>{
     this.breed = result
+    
 });
 }
 

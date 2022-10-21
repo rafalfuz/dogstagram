@@ -1,7 +1,11 @@
-<select [(ngModel)]="data">
-    <option *ngFor="let dog of dogListArray" [value]="dog">
-      {{dog}}
-    </option>
+<select [(ngModel)]="valueToChild">
+  <option *ngFor="let dog of dogListArray" [ngValue]="dog">
+    {{dog}}
+  </option>
 </select>
-<h1>{{data}}</h1>
-<app-dog-image [data] ='data'></app-dog-image>
+
+<h1>Selected: {{valueToChild}}</h1>
+
+
+<app-dog-image [valueToChild]="valueToChild"></app-dog-image>
+

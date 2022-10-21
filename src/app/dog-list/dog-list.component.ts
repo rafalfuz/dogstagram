@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-dog-list',
   templateUrl: './dog-list.component.html',
@@ -10,20 +11,20 @@ import { HttpClient } from '@angular/common/http';
 export class DogListComponent implements OnInit {
 
   dogList: any;
-  data?: string;
+  selectedBreed: string | undefined;
   dogListArray: string[];
-  
-
+  valueToChild: any;
 
   constructor(private httpClient: HttpClient) { 
     this.dogList
     this.dogListArray = []
+    this.valueToChild = '' 
   }
 
   ngOnInit(): void {
     this.getDogList()
-    
   }
+
 
   getDogList(){
     this.httpClient.get('https://dog.ceo/api/breeds/list').subscribe((result)=>{
