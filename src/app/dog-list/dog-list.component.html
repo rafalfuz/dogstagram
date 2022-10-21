@@ -1,5 +1,7 @@
-    <select>
-    <option *ngFor="let option of dogList.message" [value]="option">
-      {{option}}
+<select [(ngModel)]="data">
+    <option *ngFor="let dog of dogListArray" [value]="dog">
+      {{dog}}
     </option>
-  </select>
+</select>
+<h1>{{data}}</h1>
+<app-dog-image [data] ='data'></app-dog-image>
