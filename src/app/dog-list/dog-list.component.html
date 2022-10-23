@@ -1,11 +1,10 @@
-<select [(ngModel)]="valueToChild">
-  <option *ngFor="let dog of dogListArray" [ngValue]="dog">
-    {{dog}}
-  </option>
-</select>
+<div class="container">
+  <select [(ngModel)]="valueToChild">
+    <option *ngFor="let dog of dogListArray" [ngValue]="dog">
+      {{dog}}
+    </option>
+  </select>  
+  <app-dog-image [valueToChild]="valueToChild"></app-dog-image>
+</div>
 
-<h1>Selected: {{valueToChild}}</h1>
-
-
-<app-dog-image [valueToChild]="valueToChild"></app-dog-image>
 

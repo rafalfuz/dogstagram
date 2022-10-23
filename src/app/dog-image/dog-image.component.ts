@@ -1,4 +1,4 @@
-import { Component, OnInit, Input,} from '@angular/core';
+import { Component, OnInit, OnChanges, Input,} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -9,21 +9,25 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class DogImageComponent implements OnInit {
-  @Input() valueToChild: any
+  @Input() valueToChild = ''
   
   breed: any;
 
 
 constructor(private httpClient: HttpClient){
- this.breed = 'akita'
+ this.breed = ''
 }
 
 ngOnInit(): void{
+  
+}
+
+ngOnChanges(): void{
   this.selectBreed()
 }
 
 selectBreed(){
-  this.httpClient.get(`https://dog.ceo/api/breed/${this.breed}/images/random`).subscribe((result)=>{
+  this.httpClient.get(`https://dog.ceo/api/breed/${this.valueToChild}/images/random`).subscribe((result)=>{
     this.breed = result
     
 });

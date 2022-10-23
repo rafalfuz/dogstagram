@@ -10,15 +10,14 @@ import { HttpClient } from '@angular/common/http';
 
 export class DogListComponent implements OnInit {
 
-  dogList: any;
-  selectedBreed: string | undefined;
+  dogList: any
   dogListArray: string[];
-  valueToChild: any;
+  valueToChild: string;
 
   constructor(private httpClient: HttpClient) { 
-    this.dogList
+    this.dogList = []
     this.dogListArray = []
-    this.valueToChild = '' 
+    this.valueToChild= 'akita'
   }
 
   ngOnInit(): void {
